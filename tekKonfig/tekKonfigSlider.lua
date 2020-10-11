@@ -2,7 +2,6 @@
 local lib, oldminor = LibStub:NewLibrary("tekKonfig-Slider", 2)
 if not lib then return end
 
-
 local GameTooltip = GameTooltip
 local function HideTooltip() GameTooltip:Hide() end
 local function ShowTooltip(self)
@@ -12,7 +11,6 @@ local function ShowTooltip(self)
 	end
 end
 
-
 local HorizontalSliderBG = {
 	bgFile = "Interface\\Buttons\\UI-SliderBar-Background",
 	edgeFile = "Interface\\Buttons\\UI-SliderBar-Border",
@@ -20,13 +18,12 @@ local HorizontalSliderBG = {
 	insets = {left = 3, right = 3, top = 6, bottom = 6}
 }
 
-
 -- Create a slider.
 -- All args optional, parent recommended
 -- If lowvalue and highvalue are strings it is assumed they are % values
 -- and the % is parsed and set as decimal values for min/max
 function lib.new(parent, label, lowvalue, highvalue, ...)
-	local container = CreateFrame("Frame", nil, parent)
+	local container = CreateFrame("Frame", nil, parent, HorizontalSliderBG)
 	container:SetWidth(144)
 	container:SetHeight(17+12+10)
 	if select(1, ...) then container:SetPoint(...) end
@@ -38,7 +35,6 @@ function lib.new(parent, label, lowvalue, highvalue, ...)
 	slider:SetHitRectInsets(0, 0, -10, -10)
 	slider:SetOrientation("HORIZONTAL")
 	slider:SetThumbTexture("Interface\\Buttons\\UI-SliderBar-Button-Horizontal") -- Dim: 32x32... can't find API to set this?
-	slider:SetBackdrop(HorizontalSliderBG)
 
 	local text = slider:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 	text:SetPoint("BOTTOM", slider, "TOP")
