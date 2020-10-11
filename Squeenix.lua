@@ -34,9 +34,6 @@ function Squeenix:ADDON_LOADED(event, addon)
 	MiniMapWorldMapButton:SetNormalTexture("Interface\\Addons\\Squeenix\\WorldMapSquare.tga")
 	MiniMapWorldMapButton:SetPushedTexture("Interface\\Addons\\Squeenix\\WorldMapSquare.tga")
 
-	MiniMapVoiceChatFrame:ClearAllPoints()
-	MiniMapVoiceChatFrame:SetPoint("BOTTOMRIGHT", Minimap, "BOTTOMLEFT", 5, 20)
-
 	MinimapZoomIn:ClearAllPoints()
 	MinimapZoomIn:SetPoint("LEFT", Minimap, "BOTTOMRIGHT", -10, 5)
 
