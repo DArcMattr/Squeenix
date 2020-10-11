@@ -5,7 +5,6 @@ local f = CreateFrame("Frame")
 f:SetScript("OnEvent", function(self, event, ...) if Squeenix[event] then return Squeenix[event](Squeenix, event, ...) end end)
 f:RegisterEvent("ADDON_LOADED")
 
-
 function Squeenix:ADDON_LOADED(event, addon)
 	if addon ~= myname then return end
 

@@ -12,7 +12,6 @@ local frames = {
 	GameTimeFrame = "calendar",
 	MinimapZoneTextButton = "zone text",
 	MiniMapWorldMapButton = "world map",
-	MiniMapVoiceChatFrame = "voice chat",
 	MiniMapTracking = "tracking",
 	TimeManagerClockButton = "clock",
 }
