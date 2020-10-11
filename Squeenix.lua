@@ -133,11 +133,6 @@ local timeobj = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject("BlizzCloc
 			GameTooltip:AddLine(GAMETIME_TOOLTIP_TOGGLE_CLOCK)
 		end
 		GameTooltip:AddLine("Shift-click to open calendar.")
-		local pending = CalendarGetNumPendingInvites()
-		if pending > 0 then
-			GameTooltip:AddLine(" ")
-			GameTooltip:AddLine("You have "..pending.." pending event invite"..(pending > 1 and "s" or ""), 1, 1, 1)
-		end
 		GameTooltip:Show()
 	end,
 	OnLeave = function() GameTooltip:Hide() end,
@@ -149,12 +144,6 @@ f:SetScript("OnUpdate", function(self, elap)
 	if elapsed < 0.5 then return end
 
 	elapsed = 0
-	local pending = CalendarGetNumPendingInvites()
-	if pending > 0 then
-		timeobj.icon = math.floor(GetTime())%4 < 2 and ICON1 or ICON2
-		timeobj.text = GameTime_GetTime(false)..(pending == 0 and "" or " ("..pending..")")
-	else
-		timeobj.icon = ICON1
-		timeobj.text = GameTime_GetTime(false)
-	end
+	timeobj.icon = ICON1
+	timeobj.text = GameTime_GetTime(false)
 end)
