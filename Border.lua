@@ -11,7 +11,7 @@ Squeenix.borders = {
 		edgeFile = "", edgeSize = 0, insets = {left = 3, right = 3, top = 3, bottom = 3}},
 }
 
-local border = CreateFrame("Button", nil, Minimap, BackdropTemplate)
+local border = CreateFrame("Button", nil, Minimap, BackdropTemplateMixin and "BackdropTemplate")
 border:SetPoint("TOPLEFT","Minimap",-5,5)
 border:SetPoint("BOTTOMRIGHT","Minimap",5,-5)
 border:SetFrameStrata("BACKGROUND")
@@ -19,9 +19,6 @@ border:SetFrameLevel(1)
 
 function Squeenix:SetBorder(v) -- TODO: figure out how to apply different border in Shadowlands
 	if v then self.db.border = v end
-	border:SetAllPoints()
-	border.backdropInfo = {
-		edgeFile = self.borders[self.db.border or "Rounded"],
-		tile = true,
-	}
+	border:SetBackdrop(self.borders[self.db.border or "Rounded"])
+	border:SetBackdropColor(0,0,0,1)
 end
